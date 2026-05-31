@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Baby ❤️</title>
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+.card{
+width:90%;
+max-width:600px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:25px;
+text-align:center;
+color:white;
+box-shadow:0 0 25px rgba(0,0,0,.2);
+z-index:2;
+}
+button{
+padding:12px 24px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+}
+.heart{
+position:absolute;
+font-size:20px;
+animation:float 8s linear infinite;
+}
+@keyframes float{
+from{transform:translateY(100vh);opacity:0}
+20%{opacity:1}
+to{transform:translateY(-120px);opacity:0}
+}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>❤️ For My Baby ❤️</h1>
+<p id="msg">A tiny corner of the internet made just for you.</p>
+<button onclick="next()">Open 💌</button>
+</div>
+
+<script>
+const msgs=[
+"Hey Baby 🌷<br><br>I don't know exactly what's going on in your heart right now. But I know you've been a little quieter than usual, and I've been thinking about you.",
+"Baby 💕<br><br>I wish I could magically know what's bothering you. I wish I could take away every thought that's making you sad.",
+"You know what's funny? ✨<br><br>No matter how busy my day gets, my mind always finds its way back to you.",
+"🧸 I don't need you to be happy all the time. I just want you to know that you never have to hide your feelings from me.",
+"🌹 If you want space, I'll give you space. If you want to talk, I'll listen. If you want a hug, I'd give you the biggest one in the world.",
+"❤️ Baby, I made this because you deserve reminders that you're loved, appreciated, and cared for.",
+"🌙 To My Baby<br><br>No pressure. No questions. No expectations.<br><br>Just one simple truth...<br><br><b>I care about you more than words can explain.</b><br><br>Love,<br>Your Baby ❤️"
+];
+let i=0;
+function next(){
+if(i<msgs.length){
+document.getElementById('msg').innerHTML=msgs[i++];
+}
+}
+function heart(){
+let h=document.createElement('div');
+h.className='heart';
+h.innerHTML='❤️';
+h.style.left=Math.random()*100+'vw';
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),8000);
+}
+setInterval(heart,400);
+</script>
+</body>
+</html>
